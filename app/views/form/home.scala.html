@@ -1,0 +1,9 @@
+@import web.User
+@(user:Form[User],addSuccessful:Boolean)
+
+@import views.html.helper._
+
+    <div>
+       @helper.inputText(user("name"))
+        @helper.inputText(user("age"))
+    </div>
