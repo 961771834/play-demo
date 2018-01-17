@@ -1,11 +1,18 @@
 @(message: String)
 
-@main("this is leon application") {
+    @main("this is leon application") {
 
-   this is sidebar
+        this is sidebar,@message
 
-} {
-    @notice("warning") { color =>
-    Oops, something is <span style="color:@color">wrong</span>
+    } {
+
+        @notice("warning") { color =>
+            Oops, something is <span style="color:@color">wrong</span>
+        }
+        @*A flash value is also automatically available in Twirl templates. *@
+        @if(flash.containsKey("success")) {
+            @flash.get("success")
+        } else {
+            Welcome!
+        }
     }
-}

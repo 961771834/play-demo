@@ -10,8 +10,8 @@ import web.User;
 public class FormSubmit extends Controller {
 
     /**input form*/
-    private Form<User>  addForm;
-    public Result form (){
+    private static Form<User>  addForm;
+    public static Result form (){
         flash().clear();
         User user = new User();
         addForm = Form.form(User.class);
@@ -19,7 +19,7 @@ public class FormSubmit extends Controller {
         return ok(form.render());
     }
 
-    public Result add(){
+    public static Result add(){
         flash().clear();
         /*bind request*/
         Form<User> completeRequestForm =  addForm.bindFromRequest();
