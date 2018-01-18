@@ -1,6 +1,7 @@
 package controllers;
 
 import controllers.actionComposition.VerboseAction;
+import controllers.actionComposition.customAction.SecuredAction;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.With;
@@ -18,7 +19,7 @@ public class Application extends Controller {
         return ok(index.render(message));
     }
 
-
+    @With(SecuredAction.class)
     public  static Result save(){
         flash("success","The item has been created");
         return redirect("/");

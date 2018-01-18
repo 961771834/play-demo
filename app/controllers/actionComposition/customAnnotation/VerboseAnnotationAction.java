@@ -12,6 +12,7 @@ public class VerboseAnnotationAction extends Action<VerboseAnnotation> {
 
     @Override
     public CompletionStage<Result> call(Http.Context ctx) {
+        System.out.println(configuration);
         if (configuration.value()) {
             Logger.info("Calling action for {}", ctx);
         }
